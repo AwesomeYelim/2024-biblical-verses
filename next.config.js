@@ -1,13 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    reactRoot: true,
-    optimizeCss: true,
-    optimizeImages: true,
-    scrollRestoration: true,
-    // Enable incremental builds
-    incremental: true,
-  },
-};
+const nextConfig = {}
 
-module.exports = nextConfig;
+module.exports = nextConfig
