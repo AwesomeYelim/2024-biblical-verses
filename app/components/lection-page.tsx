@@ -57,7 +57,7 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
 
             <div className="text_area">
               <p>{lection.description}</p>
-              <p>{lection.from.replace(/[\(\)]/g, "")}</p>
+              <p>{lection.from}</p>
             </div>
             {/* <div className="sns_icon">
               {images.map((el) => {
