@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import randomIndex from "@/app/components/random-index";
+import DomToImage from "dom-to-image";
 import Image from "next/image";
-
 interface Props {
   words: { [key in string]: string }[];
 }
@@ -44,13 +44,28 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
     setLection(target);
   }, [modal]);
 
+  const imgdown = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation();
+    DomToImage.toBlob(document.querySelector(".modal") as Element).then(
+      (blob) => {
+        console.log(blob);
+
+        // saveAs(blob, "image__.png");
+      }
+    );
+  };
+
   return (
     <div className="lection_wrap">
       <div className="letter">
-        <ImgEl name="letter-back" size={{ width: 530, height: 132 }} style={delay ? { opacity: 0 } : {}} />
+        <ImgEl
+          name="letter-back"
+          size={{ width: 530, height: 132 }}
+          style={delay ? { opacity: 0 } : {}}
+        />
 
         {modal && (
-          <div className="modal">
+          <div className="modal" style={delay ? { zIndex: 100 } : {}}>
             <ImgEl name="line" size={{ width: 76, height: 104 }} />
 
             <ImgEl name="top_img" size={{ width: 110, height: 110 }} />
@@ -59,6 +74,7 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
               <p>{lection.description}</p>
               <p>{lection.from}</p>
             </div>
+
             {/* <div className="sns_icon">
               {images.map((el) => {
                 return (
@@ -73,7 +89,11 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
             <ImgEl name="bottom_img" size={{ width: 76, height: 104 }} />
           </div>
         )}
-        <ImgEl name="letter-after" size={{ width: 530, height: 260 }} style={delay ? { opacity: 0 } : {}} />
+        <ImgEl
+          name="letter-after"
+          size={{ width: 530, height: 260 }}
+          style={delay ? { opacity: 0 } : {}}
+        />
         <ImgEl
           name="letter-cover.png"
           size={{ width: 530, height: 186 }}
@@ -88,9 +108,13 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
         className="lection-button"
         onClick={() => {
           setModal(!modal);
-        }}>
+        }}
+      >
         {modal ? "다시 할래요 !" : "2024 내게 주신 하나님의 말씀"}
       </button>
+      {/* <button className="down_btn" onClick={imgdown}>
+        <ImgEl name={`sns/imgdown`} size={{ width: 26, height: 25 }} />
+      </button> */}
     </div>
   );
 };

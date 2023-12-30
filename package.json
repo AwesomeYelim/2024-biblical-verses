@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dom-to-image": "^2.6.0",
     "fs": "^0.0.1-security",
     "next": "14.0.4",
     "path": "^0.12.7",
@@ -19,6 +20,7 @@
     "styled-components": "^6.0.5"
   },
   "devDependencies": {
+    "@types/dom-to-image": "^2.6.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
