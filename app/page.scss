@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css');
+@import url("https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css");
 
 @mixin flex($align, $justify, $direction: row) {
   display: flex;
@@ -46,7 +46,8 @@ body {
       animation: move 1.3s;
       animation-fill-mode: both;
       color: #150d0d;
-      font-family: 'Galmuri14', sans-serif;
+      font-family: "Galmuri9", sans-serif;
+      font-weight: 600;
       transform-origin: 105% 50%;
       @keyframes move {
         30% {
@@ -64,7 +65,7 @@ body {
         }
       }
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 20px;
         width: 30px;
@@ -115,11 +116,12 @@ body {
   }
 
   .lection-button {
-    font-family: 'Galmuri14', sans-serif;
+    font-family: "Galmuri14", sans-serif;
+    // font-weight: 600;
 
     width: 500px;
     height: 30px;
-    background-color: #960000;
+    background-color: #7a3b3bb1;
     border: 1px solid #ccc;
     cursor: pointer;
     bottom: 20px;
