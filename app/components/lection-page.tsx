@@ -72,8 +72,6 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
 
     DomToImage.toPng(target as Element, options)
       .then((dataUrl) => {
-        console.log(target.style, options);
-
         saveImg(dataUrl, "2024_bible_verses.png");
       })
       .catch((error) => {
