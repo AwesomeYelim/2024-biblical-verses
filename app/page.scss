@@ -19,7 +19,6 @@ body {
   position: relative;
   margin-top: 100px;
   width: 50%;
-  gap: 100px;
 
   .letter {
     position: relative;
@@ -117,8 +116,8 @@ body {
 
   .lection-button {
     font-family: "Galmuri14", sans-serif;
-    // font-weight: 600;
-
+    margin-top: 100px;
+    margin-bottom: 30px;
     width: 500px;
     height: 30px;
     background-color: #7a3b3bb1;
@@ -127,6 +126,25 @@ body {
     bottom: 20px;
     font-size: 0.8rem;
     color: #ffffff;
+  }
+
+  .after_img_btn {
+    @include flex(flex-end, flex-end);
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+    gap: 10px;
+    > button {
+      // width: 30px;
+      height: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      &.refresh_btn {
+        border: 1px solid #150d0d;
+        border-radius: 3px;
+      }
+    }
   }
 }
 

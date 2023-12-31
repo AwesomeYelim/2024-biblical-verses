@@ -129,17 +129,26 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
           }}
         />
       </div>
-      <button
-        className="lection-button"
-        onClick={() => {
-          setModal(!modal);
-        }}
-      >
-        {modal ? "다시 할래요 !" : "2024 내게 주신 하나님의 말씀"}
-      </button>
-      <button className="down_btn" onClick={imgdown}>
-        <ImgEl name={`sns/imgdown`} size={{ width: 26, height: 25 }} />
-      </button>
+      {!modal && (
+        <button
+          className="lection-button"
+          onClick={() => {
+            setModal(!modal);
+          }}
+        >
+          2024 내게 주신 하나님의 말씀
+        </button>
+      )}
+      {modal && (
+        <div className="after_img_btn">
+          <button className="down_btn" onClick={imgdown}>
+            <ImgEl name={`sns/imgdown`} size={{ width: 26, height: 25 }} />
+          </button>
+          <button className="refresh_btn" onClick={() => setModal(false)}>
+            다시 할래요 !
+          </button>
+        </div>
+      )}
     </div>
   );
 };
