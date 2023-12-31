@@ -27,41 +27,36 @@ body {
     width: 530px;
     height: 260px;
     margin-top: 140px;
-    .line {
-      position: absolute;
-      top: -78px;
-    }
     .modal {
       @include flex(center, center, column);
       position: absolute;
       gap: 20px;
-      transform: scale(0.7) translate(55%, -50%);
+      transform: scale(0.7);
       padding: 30px;
       box-sizing: border-box;
       width: 250px;
+      height: fit-content;
       border-radius: 35% 35% 0 0;
       background-color: #f2e3d1;
-      z-index: 5;
       opacity: 0;
       animation: move 1.3s;
       animation-fill-mode: both;
       color: #150d0d;
       font-family: "Galmuri9", sans-serif;
       font-weight: 600;
-      transform-origin: 105% 50%;
       @keyframes move {
         30% {
-          transform: scale(0.7) rotateY(180deg) translate(55%, -70%);
+          transform: scale(0.7) rotateY(180deg);
         }
         50% {
-          transform: scale(0.7) rotateY(360deg) translate(55%, -70%);
+          transform: scale(0.7) rotateY(360deg);
         }
         70% {
-          transform: scale(0.7) rotateY(540deg) translate(55%, -70%);
+          transform: scale(0.7) rotateY(540deg);
         }
         100% {
           opacity: 1;
-          transform: scale(0.7) rotateY(720deg) translate(55%, -60%);
+          transform: scale(0.7) rotateY(720deg);
         }
       }
       &:before {
@@ -94,6 +89,11 @@ body {
         }
       }
     }
+    .line {
+      position: absolute;
+      top: -78px;
+    }
+
     > img {
       position: absolute;
       transition: 0.5s all;

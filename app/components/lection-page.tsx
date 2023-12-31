@@ -44,15 +44,41 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
     setLection(target);
   }, [modal]);
 
+  const saveImg = (url: string, filename: string) => {
+    let link = document.createElement("a");
+
+    document.body.appendChild(link);
+
+    link.href = url;
+    link.download = filename;
+    link.click();
+
+    document.body.removeChild(link);
+  };
+
   const imgdown = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
-    DomToImage.toBlob(document.querySelector(".modal") as Element).then(
-      (blob) => {
-        console.log(blob);
 
-        // saveAs(blob, "image__.png");
-      }
-    );
+    const target = document.querySelector(".modal");
+
+    (target as Element & { style: { top: string } }).style.top = "";
+    (target as Element & { style: { left: string } }).style.left = "";
+    // (target as Element & { style: { opacity: number } }).style.opacity = 1;
+
+    const options = {
+      width: target!.clientWidth,
+      height: target!.clientHeight,
+    };
+
+    DomToImage.toPng(target as Element, options)
+      .then((dataUrl) => {
+        console.log(target.style, options);
+
+        saveImg(dataUrl, "2024_bible_verses.png");
+      })
+      .catch((error) => {
+        console.error("Error capturing image:", error);
+      });
   };
 
   return (
@@ -63,11 +89,12 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
           size={{ width: 530, height: 132 }}
           style={delay ? { opacity: 0 } : {}}
         />
-
         {modal && (
-          <div className="modal" style={delay ? { zIndex: 100 } : {}}>
+          <div
+            className="modal"
+            style={{ top: "-100%", left: "25%", zIndex: delay ? 100 : 5 }}
+          >
             <ImgEl name="line" size={{ width: 76, height: 104 }} />
-
             <ImgEl name="top_img" size={{ width: 110, height: 110 }} />
 
             <div className="text_area">
@@ -112,9 +139,9 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
       >
         {modal ? "다시 할래요 !" : "2024 내게 주신 하나님의 말씀"}
       </button>
-      {/* <button className="down_btn" onClick={imgdown}>
+      <button className="down_btn" onClick={imgdown}>
         <ImgEl name={`sns/imgdown`} size={{ width: 26, height: 25 }} />
-      </button> */}
+      </button>
     </div>
   );
 };
