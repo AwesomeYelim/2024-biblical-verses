@@ -72,7 +72,7 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
 
     DomToImage.toPng(target as Element, options)
       .then((dataUrl) => {
-        saveImg(dataUrl, "2024_bible_verses.png");
+        saveImg(dataUrl, "2025_bible_verses.png");
       })
       .catch((error) => {
         console.error("Error capturing image:", error);
@@ -136,7 +136,7 @@ export const LectionPage = ({ words }: Props): JSX.Element => {
             setModal(!modal);
           }}
         >
-          2024 내게 주신 하나님의 말씀
+          2025 내게 주신 하나님의 말씀
         </button>
       )}
       {modal && (

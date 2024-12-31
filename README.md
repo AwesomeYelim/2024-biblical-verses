@@ -1,5 +1,5 @@
-# 2024
+# 2025
 
-## 2024-biblical-verses
+## 2025-biblical-verses
 
-<https://2024-biblical-verses.vercel.app/>
+<https://2025-biblical-verses.vercel.app/>

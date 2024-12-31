@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "2024-biblical-verses",
-  description: "2024 성구 뽑기",
+  title: "2025-biblical-verses",
+  description: "2025 성구 뽑기",
   icons: {
     shortcut: "/images/top_img.svg",
   },
